@@ -1,6 +1,12 @@
 {
   "students": [
     {
+      "id": "1",
+      "firstName": "Diana",
+      "lastName": "Ramanova",
+      "group": "N45"
+    },
+    {
       "id": "2",
       "firstName": "John",
       "lastName": "Doe",
