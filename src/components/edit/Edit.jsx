@@ -1,18 +1,16 @@
 import { useEffect, useState } from "react";
 import "./Edit.scss";
 import { useNavigate, useParams } from "react-router-dom";
-
 import axios from "axios";
-import { toast } from "react-toastify";
 
 function Edit() {
   const navegate = useNavigate();
   const { id } = useParams();
   const [user, setUser] = useState({
     id: "",
-    name: "",
+    firstName: "",
     group: "",
-    sur: "",
+    lastName: "",
   });
 
   useEffect(() => {
@@ -23,9 +21,9 @@ function Edit() {
           const user = res.data;
           setUser({
             id: user.id,
-            name: user.name,
+            firstName: user.firstName,
             group: user.group,
-            sur: user.sur,
+            lastName: user.lastName,
           });
         })
         .catch((err) => {
@@ -39,9 +37,7 @@ function Edit() {
     navegate("/");
     axios
       .put(`http://localhost:3000/students/${id}`, user)
-      .then((res) => {
-        toast.success("Edit Student Success ");
-      })
+      .then((res) => {})
       .catch((err) => {
         console.log(err);
       });
@@ -59,25 +55,25 @@ function Edit() {
       <div className="container">
         <div className="add">
           <div className="form">
-            <label htmlFor="name">Firstname</label>
+            <label htmlFor="firstName">Firstname</label>
             <input
               type="name"
               onChange={handelChange}
               placeholder="Firstname"
-              id="name"
-              name="name"
-              value={user.name}
+              id="firstName"
+              name="firstName"
+              value={user.firstName}
             />
           </div>
           <div className="form">
-            <label htmlFor="sur">Lastname</label>
+            <label htmlFor="lastName">Lastname</label>
             <input
               onChange={handelChange}
               type="username"
               placeholder="Lastname"
-              id="sur"
-              name="sur"
-              value={user.sur}
+              id="lastName"
+              name="lastName"
+              value={user.lastName}
             />
           </div>
           <div className="form">
@@ -91,7 +87,7 @@ function Edit() {
         <button
           className="save"
           onClick={editAdd}
-          disabled={!user.name || !user.group || !user.sur}
+          disabled={!user.firstName || !user.group || !user.lastName}
         >
           Update
         </button>

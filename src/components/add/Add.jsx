@@ -2,20 +2,19 @@ import { useEffect, useState } from "react";
 import "./Add.scss";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { toast } from "react-toastify";
 
 function Add() {
   const navegate = useNavigate();
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState({
-    name: "",
+    firstName: "",
     group: "",
-    sur: "",
+    lastName: "",
   });
 
   useEffect(() => {
     const fetchData = () => {
-      axios.get("http://localhost:3000/data").then((res) => {
+      axios.get("http://localhost:3000/students").then((res) => {
         const user = res.data;
         setUsers(user);
       });
@@ -28,7 +27,6 @@ function Add() {
     await axios.post("http://localhost:3000/students", newData).then((res) => {
       console.log(res.data);
       navegate("/");
-      toast.success("Added Student Success");
     });
   };
   const handelChange = (e) => {
@@ -43,23 +41,23 @@ function Add() {
       <div className="container">
         <div className="add">
           <div className="form">
-            <label htmlFor="name">Firstname</label>
+            <label htmlFor="firstName">Firstname</label>
             <input
               type="name"
               onChange={handelChange}
               placeholder="Firstname"
-              id="name"
-              name="name"
+              id="firstName"
+              name="firstName"
             />
           </div>
           <div className="form">
-            <label htmlFor="sur">Lastname</label>
+            <label htmlFor="lastName">Lastname</label>
             <input
               onChange={handelChange}
               type="username"
               placeholder="Lastname"
-              id="sur"
-              name="sur"
+              id="lastName"
+              name="lastName"
             />
           </div>
           <div className="form">
@@ -67,18 +65,21 @@ function Add() {
               <option value="all">Group</option>
               <option value="N45">N45</option>
               <option value="N44">N44</option>
+              <option value="N38">N38</option>
+              <option value="N32">N32</option>
+              <option value="N30">N30</option>
             </select>
           </div>
         </div>
         <button
-          className="save"
+          className="btn1"
           onClick={add}
-          disabled={!user.name || !user.group || !user.sur}
+          disabled={!user.firstName || !user.group || !user.lastName}
         >
           Save
         </button>
         <button
-          className="save"
+          className="btn2"
           onClick={() => navegate("/")}
           style={{ opacity: "0.7" }}
         >

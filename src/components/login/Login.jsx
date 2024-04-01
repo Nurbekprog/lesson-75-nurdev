@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./Login.scss";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 const LoginPanel = ({ login }) => {
   const [name, setName] = useState(false);
   const [password, setpassword] = useState(false);
@@ -13,7 +12,6 @@ const LoginPanel = ({ login }) => {
   const hendelSubmit = () => {
     if (user.name && user.password !== "") {
       localStorage.setItem("user", JSON.stringify(user));
-      toast.success("User saved successfully");
       navigation("/");
       login(true);
     } else {

@@ -1,5 +1,4 @@
 .add {
-  //   width: 100%;
   padding-top: 50px;
   display: flex;
   justify-content: space-between;
@@ -24,6 +23,28 @@
   }
 }
 
+.btn1 {
+  padding: 14px 40px;
+  margin: 20px 40px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  background-color: #3c39daee;
+  color: #fff;
+  font-size: 18px;
+}
+label {
+  color: #fff;
+}
+.btn2 {
+  padding: 14px 40px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: #303033ee;
+  color: #fff;
+  font-size: 18px;
+}
 @media screen and (max-width: 450px) {
   .add {
     flex-wrap: wrap;
