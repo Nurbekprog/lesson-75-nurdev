@@ -11,7 +11,7 @@ function Header({ login }) {
           <div className="container">
             <div className="header">
               <Link to={"/"}>
-                <h1>Students</h1>a
+                <h1>Students</h1>
               </Link>
               <div className="header_div">
                 <Link to={"/profile"} style={{ color: "#fff" }}>
