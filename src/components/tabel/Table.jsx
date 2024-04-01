@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Table.scss";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import "../filter/Filter.scss";
 import { GrNext } from "react-icons/gr";
 import { GrPrevious } from "react-icons/gr";
@@ -13,7 +12,7 @@ function Tabel() {
   const [data1, setData1] = useState([]);
   const [group, setGroup] = useState();
   const [itemOffset, setItemOffset] = useState(0);
-  const itemsPerPage = 10;
+  const itemsPerPage = 5;
   const fetchData = () => {
     axios.get("http://localhost:3000/students").then((res) => {
       const data = res.data;
@@ -26,7 +25,6 @@ function Tabel() {
     fetchData();
   }, []);
 
-
   const startOffset = itemOffset;
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = data?.slice(startOffset, endOffset);
@@ -36,7 +34,6 @@ function Tabel() {
     const newOffset = selectedPage * itemsPerPage;
     setItemOffset(newOffset);
   };
-
 
   const handleChange = (event) => {
     let value = event.target.value;
@@ -52,7 +49,6 @@ function Tabel() {
       axios
         .delete(`http://localhost:3000/students/${id}`)
         .then((res) => {
-          toast.success("Delete Student Success ");
           fetchData();
         })
         .catch((err) => {
