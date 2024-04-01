@@ -2,7 +2,6 @@ import "./Profile.scss";
 
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { toast } from "react-toastify";
 const Profile = () => {
   const [name, setName] = useState(false);
   const [password, setpassword] = useState(false);
@@ -14,7 +13,6 @@ const Profile = () => {
   const hendelSubmit = () => {
     if (user.name && user.password !== "") {
       localStorage.setItem("user", JSON.stringify(user));
-      toast.success("User information has been changed successfully");
       setUser({
         name: "",
         password: "",
