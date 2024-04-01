@@ -1,22 +1,28 @@
 {
   "students": [
     {
+      "id": "1",
+      "firstName": "David",
+      "lastName": "King",
+      "group": "N38"
+    },
+    {
       "id": "2",
       "firstName": "John",
       "lastName": "Doe",
-      "group": "N44"
+      "group": "N32"
     },
     {
       "id": "3",
       "firstName": "Jane",
       "lastName": "Doe",
-      "group": "N45"
+      "group": "N30"
     },
     {
       "id": "4",
       "firstName": "Kane",
       "lastName": "Laple",
-      "group": "N44"
+      "group": "N38"
     },
     {
       "id": "5",
@@ -34,7 +40,7 @@
       "id": "7",
       "firstName": "Ramso",
       "lastName": "Herny",
-      "group": "N45"
+      "group": "N32"
     },
     {
       "id": "8",
@@ -58,7 +64,7 @@
       "id": "11",
       "firstName": "Ross",
       "lastName": "Washington",
-      "group": "N44"
+      "group": "N30"
     },
     {
       "id": "12",
@@ -77,18 +83,6 @@
       "firstName": "David",
       "lastName": "King",
       "group": "N45"
-    },
-    {
-      "id": "15",
-      "firstName": "Lucy",
-      "lastName": "White",
-      "group": "N44"
-    },
-    {
-      "id": "15",
-      "firstName": "Nurbek",
-      "group": "N45",
-      "lastName": "Yuldashev"
     }
   ]
 }
