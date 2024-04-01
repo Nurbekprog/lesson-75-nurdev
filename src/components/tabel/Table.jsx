@@ -14,7 +14,6 @@ function Tabel() {
   const [group, setGroup] = useState();
   const [itemOffset, setItemOffset] = useState(0);
   const itemsPerPage = 10;
-  //
   const fetchData = () => {
     axios.get("http://localhost:3000/students").then((res) => {
       const data = res.data;
@@ -23,14 +22,11 @@ function Tabel() {
     });
   };
 
-  //
   useEffect(() => {
     fetchData();
   }, []);
 
-  //
 
-  // pagenation function
   const startOffset = itemOffset;
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = data?.slice(startOffset, endOffset);
@@ -41,7 +37,6 @@ function Tabel() {
     setItemOffset(newOffset);
   };
 
-  //
 
   const handleChange = (event) => {
     let value = event.target.value;
