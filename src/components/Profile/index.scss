@@ -1,17 +1,12 @@
 .profil {
   width: 70%;
   height: 450px;
-  background-color: white;
+  background-color: #333333;
   margin: 0 auto;
   margin-top: 100px;
   border-radius: 8px;
-  img {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto;
-    display: block;
-  }
   .login {
+    padding-top: 40px;
     input {
       display: block;
       width: 70%;

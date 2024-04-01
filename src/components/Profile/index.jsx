@@ -1,5 +1,5 @@
 import "./index.scss";
-import userpn from "../../assets/User-avatar.svg.png";
+
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { toast } from "react-toastify";
@@ -41,7 +41,6 @@ const Profile = () => {
   return (
     <div className="container">
       <div className="profil">
-        <img src={userpn} alt="" />
         <div className="login">
           <input
             type="user"
@@ -63,7 +62,7 @@ const Profile = () => {
           />
           <div className="btn">
             <button onClick={hendelSubmit}>Update</button>
-            <button onClick={hendelLogaut}>Logaut</button>
+            <button onClick={hendelLogaut}>Logout</button>
           </div>
         </div>
       </div>
