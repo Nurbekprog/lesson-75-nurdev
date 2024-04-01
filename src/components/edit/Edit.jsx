@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
-import "./index.scss";
-import { useNavigate } from "react-router-dom";
+import "./Edit.scss";
+import { useNavigate, useParams } from "react-router-dom";
+
 import axios from "axios";
 import { toast } from "react-toastify";
 
-function Add() {
+function Edit() {
   const navegate = useNavigate();
-  const [users, setUsers] = useState([]);
+  const { id } = useParams();
   const [user, setUser] = useState({
+    id: "",
     name: "",
     group: "",
     sur: "",
@@ -15,22 +17,36 @@ function Add() {
 
   useEffect(() => {
     const fetchData = () => {
-      axios.get("http://localhost:3000/data").then((res) => {
-        const user = res.data;
-        setUsers(user);
-      });
+      axios
+        .get(`http://localhost:3000/students/${id}`)
+        .then((res) => {
+          const user = res.data;
+          setUser({
+            id: user.id,
+            name: user.name,
+            group: user.group,
+            sur: user.sur,
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     };
     fetchData();
-  }, []);
+  }, [id]);
 
-  const add = async () => {
-    const newData = { ...user, id: users.length + 1 + "" };
-    await axios.post("http://localhost:3000/students", newData).then((res) => {
-      console.log(res.data);
-      navegate("/");
-      toast.success("Added Student Success");
-    });
+  const editAdd = () => {
+    navegate("/");
+    axios
+      .put(`http://localhost:3000/students/${id}`, user)
+      .then((res) => {
+        toast.success("Edit Student Success ");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
+
   const handelChange = (e) => {
     setUser({
       ...user,
@@ -50,6 +66,7 @@ function Add() {
               placeholder="Firstname"
               id="name"
               name="name"
+              value={user.name}
             />
           </div>
           <div className="form">
@@ -60,10 +77,11 @@ function Add() {
               placeholder="Lastname"
               id="sur"
               name="sur"
+              value={user.sur}
             />
           </div>
           <div className="form">
-            <select name="group" onChange={handelChange}>
+            <select name="group" value={user.group} onChange={handelChange}>
               <option value="all">Group</option>
               <option value="N45">N45</option>
               <option value="N44">N44</option>
@@ -72,10 +90,10 @@ function Add() {
         </div>
         <button
           className="save"
-          onClick={add}
+          onClick={editAdd}
           disabled={!user.name || !user.group || !user.sur}
         >
-          Save
+          Update
         </button>
         <button
           className="save"
@@ -89,4 +107,4 @@ function Add() {
   );
 }
 
-export default Add;
+export default Edit;

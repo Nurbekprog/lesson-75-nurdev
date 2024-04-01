@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import Edit, { Delete } from "../../constants";
-import "./index.scss";
+import "./Table.scss";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import "../filter/index.scss";
+import "../filter/Filter.scss";
 import { GrNext } from "react-icons/gr";
 import { GrPrevious } from "react-icons/gr";
 import axios from "axios";

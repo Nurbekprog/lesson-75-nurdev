@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./index.scss";
+import "./Login.scss";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 const LoginPanel = ({ login }) => {

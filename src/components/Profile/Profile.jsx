@@ -1,4 +1,4 @@
-import "./index.scss";
+import "./Profile.scss";
 
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";

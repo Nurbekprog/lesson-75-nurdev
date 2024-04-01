@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import Header from "./components/header";
-import Tabel from "./components/tabel";
-import LoginPanel from "./components/login";
-import Add from "./components/add";
-import Edit from "./components/edit";
-import Profile from "./components/Profile";
-import NotFound from "./components/not-found";
+import Header from "./components/header/Header";
+import Tabel from "./components/tabel/Table";
+import LoginPanel from "./components/login/Login";
+import Add from "./components/add/Add";
+import Edit from "./components/edit/Edit";
+import Profile from "./components/Profile/Profile";
+import NotFound from "./components/not-found/NotFound";
 const Router = () => {
   const [isLogin, setIsLogin] = useState(false);
   const navigation = useNavigate();
   const parms = window.location.href;
-  // login
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
     if (user) {
